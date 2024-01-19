@@ -37,9 +37,28 @@
 - a ?? b / a 가 null 도 아니고 undefined 도 아니면 a 그 외의 경우는 b
 - || : 첫 번째 truthy 값을 반환함
 - ?? : 첫 번째 정의된 값을 반환 함
+- 안전성 관련 이슈 때문에 ??는 &&나 ||와 함께 사용하지 못함
   ```
   let height = 0;
 
   alert(height || 100); //100
   alert(height ?? 100); //0
   ```
+- switch 문 : 특정 변수를 다양한 상황에서 비교할 수 있게 해줌
+  ```
+  switch(x){
+    case 'value1': //if(x === 'value1')
+    ...
+    [break]
+
+    case 'value2': // if(x === 'value2')
+    ...
+    [break]
+
+    default:
+    ...
+    [break]
+  }
+  ```
+
+  
