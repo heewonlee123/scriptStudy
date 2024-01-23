@@ -279,8 +279,38 @@
       clone.name = "Pete"; // clone의 데이터를 변경합니다.
       
       alert( user.name ); // 기존 객체에는 여전히 John이 있습니다.
+
+      // Object.assign를 사용하는 방법
+      Object.assign(dest, [src1, src2, src3...])
+
+      let user = { name: "John" };
+      let permissions1 = { canView: true };
+      let permissions2 = { canEdit: true };
+
+      // permissions1과 permissions2의 프로퍼티를 user로 복사합니다.
+      Object.assign(user, permissions1, permissions2);
+      // now user = { name: "John", canView: true, canEdit: true }
+
+      let user = {
+        name: "John",
+        size: {
+          height: 182,
+          width: 50
+        }
+      };
+
+      let clone = Object.assign({}, user);
+      
+      user.sizes.width++; // 한 객체에서 프로퍼티를 변경합니다.
+      alert(clone.sizes.width); // 51, 다른 객체에서 변경 사항을 확인할 수 있습니다.
+    
     ```
-  
-  
+- 옵셔널 체이닝 ( 스펙에 추가된 지 얼마 안 된 문법, 구식 브라우저는 폴리필:브라우저에서 지원하지 않는 코드를 사용 가능한 코드조각이나 플러그인으로 변환한 코드를 의미함 이 필요함)
+  - ?.은 ?.'앞'의 평가 대상이 undefined 나 null 이면 평가를 멈추고 undefined 를 반환합니다.
+    ```
+      let user = {};
+
+      alert( user?.address?.street); // undefined, 에러가 발생하지 않습니다.
+    ```
 
   
