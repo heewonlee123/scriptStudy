@@ -1,4 +1,4 @@
-### 240119
+![image](https://github.com/heewonlee123/scriptStudy/assets/108706556/e950485c-3f17-4f99-ba1c-7597382849a7)### 240119
 # 코드구조
 - use strict : 새롭게 제정된 ES5에서 새로운 기능이 추가되고 기존 기능 중 일부가 변경되었기에, 호환성 문제가 생길수 있어 ES5의 기본 모드에선 활성화되지 않도록 설계했음
 - 최상단에 있어야 한다는 것 / 꼭 사용할 필요는 없음
@@ -312,5 +312,73 @@
 
       alert( user?.address?.street); // undefined, 에러가 발생하지 않습니다.
     ```
+- 원시값의 메서드
+  - 원시형의 종류 : 문자, 숫자, bigint, 불린, 심볼, null, undefined
+    ```
+      let john = {
+        name: "John",
+        sayHi: function() {
+          alert("친구야 반갑다!");
+        }
+      };
+      
+      john.sayHi(); // 친구야 반갑다!
+    ```
+- 배열 : 키를 사용해 식별할 수 있는 값을 담은 컬렉션은 객체라는 자료구조를 이용해 저장함
+  ```
+  let arr = new Array();
+  let arr = [];
+  ```
+  - 큐 : 배열을 사용해 만들 수 있는 대표적인 자료구조 / push : 맨 끝에 요소 추가 shift : 제일 앞 요소를 꺼내 제거한 후 남아있는 요소들을 앞으로 밀어줌 
+    ![image](https://github.com/heewonlee123/scriptStudy/assets/108706556/8376d095-f91d-4ef5-b102-71336360d766)
+  - 스택 : 한쪽 끝에 요소를 더하거나 뺄 수 있게 해주는 자료구조 / push : 요소를 스택 끝에 집어넣기 pop : 스택 끝 요소를 추출함
+    ![image](https://github.com/heewonlee123/scriptStudy/assets/108706556/1d01dff0-9c39-4f4c-ae9c-d02b19332d3b)
+  - 요소 추가·제거 메서드
+    - arr.push(...items) – 맨 끝에 요소 추가
+    - arr.pop() – 맨 끝 요소 제거
+    - arr.shift() – 맨 앞 요소 제거
+    - arr.unshift(...items) – 맨 앞에 요소 추가
+      ```
+        let arr = ["I", "study", "JavaScript"];
+
+        arr.splice(1, 1); // 인덱스 1부터 요소 한 개를 제거
+        
+        alert( arr ); // ["I", "JavaScript"]
+      ```
+      - concat : 기존 배열의 요소를 사용해 새로운 배열을 만들거나 기존 배열에 요소를 추가할 때 사용 함
+      - forEach
+        ```
+        arr.forEach(function(item, index, array) {
+          // 요소에 무언가를 할 수 있습니다.
+        });
+        ```
+      - 배열 탐색
+        ```
+          let arr = [1, 0, false];
+          
+          alert( arr.indexOf(0) ); // 1
+          alert( arr.indexOf(false) ); // 2
+          alert( arr.indexOf(null) ); // -1
+          
+          alert( arr.includes(1) ); // true
+        ```
+      - find , findIndex
+        ```
+          let result = arr.find(function(item, index, array) {
+            // true가 반환되면 반복이 멈추고 해당 요소를 반환합니다.
+            // 조건에 해당하는 요소가 없으면 undefined를 반환합니다.
+          });
+
+          let users = [
+            {id: 1, name: "John"},
+            {id: 2, name: "Pete"},
+            {id: 3, name: "Mary"}
+          ];
+          
+          let user = users.find(item => item.id == 1);
+          
+          alert(user.name); // John
+        ```
+
 
   
