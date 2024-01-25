@@ -379,6 +379,42 @@
           
           alert(user.name); // John
         ```
+      - map ( 유용성과 사용 빈도가 아주 높은 메서드 중 하나)
+       ```
+         let result = arr.map(function(item, index, array) {
+            // 요소 대신 새로운 값을 반환합니다.
+          });
+
+         let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length);
+         alert(lengths); // 5,7,6
+       ```
+       - sort(fn) : 배열의 요소를 정렬해줌
+         ```
+          let arr = [ 1, 2, 15 ];
+
+          // arr 내부가 재 정렬됩니다.
+          arr.sort();
+          
+          alert( arr );  // 1, 15, 2
+         ```
+       - reverse : arr의 요소를 역순으로 정렬시켜주는 메서드
+         ```
+          let arr = [1, 2, 3, 4, 5];
+          arr.reverse();
+          
+          alert( arr ); // 5,4,3,2,1
+         ```
+       - split과 join
+         ```
+          let names = 'Bilbo, Gandalf, Nazgul';
+
+          let arr = names.split(', ');
+          
+          for (let name of arr) {
+            alert( `${name}에게 보내는 메시지` ); // Bilbo에게 보내는 메시지
+          }
+         ```
+       
 
 
   
