@@ -442,7 +442,37 @@
         - reverse() – 배열을 뒤집어 반환함
         - split/join – 문자열을 배열로, 배열을 문자열로 변환함
         - reduce(func, initial) – 요소를 차례로 돌면서 func을 호출함. 반환값은 다음 함수 호출에 전달함. 최종적으로 하나의 값이 도출됨
-       
+     
+  - iterable 객체 : 반복 가능한 객체는 배열을 일반화한 객체입니다. 이터러블 이라는 개념을 사용하면 어떤 객체에든 for..of 반복문을 적용할 수 있습니다.
+    ```
+    let range = {
+      from : 1,
+      to : 5
+    };
+    // 1. for..of 최초 호출 시, Symbol.iterator가 호출됩니다.
+    range[Symbol.iterator] = function(){
+    // Symbol.iterator는 이터레이터 객체를 반환합니다.
+    // 2. 이후 for..of는 반환된 이터레이터 객체만을 대상으로 동작하는데, 이때 다음 값도 정해집니다.
+      return {
+        current: this.from,
+        last: this.to,
+      
+        // 3. for..of 반복문에 의해 반복마다 next()가 호출됩니다.
+        next(){
+          if(this.current <= this.last){
+            return { done: false, value: this.current++ };
+          } else{
+            return { done : true };
+          }
+        }
+      };
+    };
+
+    // 이제 의도한 대로 동작합니다!
+    for (let num of range) {
+      alert(num);
+    }
+    ```   
 
 
   
