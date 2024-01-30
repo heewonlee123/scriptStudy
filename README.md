@@ -468,11 +468,15 @@
       };
     };
 
-    // 이제 의도한 대로 동작합니다!
+    // 이제 의도한 대로 동작합니다
     for (let num of range) {
       alert(num);
     }
-    ```   
+    ```
+    let arrayLosl = {
+      0: "Hello",
+      1: "World",
+    };
 
 
   
